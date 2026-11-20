@@ -10,6 +10,26 @@ test("renders the correct child components", () => {
   expect(container.querySelector(".App main")).toBeInTheDocument();
 });
 
+test("passes blog profile and post data through the component tree", () => {
+  render(<App />);
+
+  expect(screen.getByRole("heading", { name: "The Sunday Edit" })).toBeInTheDocument();
+  expect(
+    screen.getByText(
+      "A journal about noticing more, living well, and finding meaning in the everyday.",
+    ),
+  ).toBeInTheDocument();
+  expect(screen.getByRole("img", { name: "blog logo" })).toHaveAttribute(
+    "src",
+    expect.stringContaining("data:image/png"),
+  );
+  expect(screen.getByRole("heading", { name: "The art of paying attention" })).toBeInTheDocument();
+  expect(screen.getByText("November 18, 2025")).toBeInTheDocument();
+  expect(
+    screen.getByText("On the small, ordinary moments that turn out to be the whole point."),
+  ).toBeInTheDocument();
+});
+
 test("filters stories by category and search query", () => {
   render(<App />);
 

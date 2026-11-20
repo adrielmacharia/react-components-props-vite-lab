@@ -33,9 +33,10 @@ App
 ```
 
 `App` reads the blog profile and post list from `src/data/blog.js`, manages
-category/search filters and newsletter feedback, and passes the relevant data
-to its child components. `ArticleList` maps post data to keyed `Article`
-components. Each article can expand to show its full story.
+newsletter feedback, and passes the relevant data to its child components.
+`ArticleList` receives the posts array, manages category/search filters, and
+maps post data to keyed `Article` components. Each article can expand to show
+its full story.
 
 ## Content and maintenance
 
